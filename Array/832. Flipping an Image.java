@@ -31,3 +31,17 @@ class Solution {
         return arr;
     }
 }
+
+// method 2
+class Solution {
+    public int[][] flipAndInvertImage(int[][] image) {
+       for (int[] row : image ){
+           for (int i = 0; i * 2 < row.length; i++ ){
+               if (row[i] == row[ row.length - i - 1]){
+                   row[i] = row[row.length - i - 1 ] ^= 1;
+               }
+           }
+       }
+       return image;
+    }
+}
