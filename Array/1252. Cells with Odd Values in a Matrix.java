@@ -25,3 +25,22 @@ class Solution {
         return count;
     }
 }
+
+// second method
+
+class Solution {
+    public int oddCells(int m, int n, int[][] indices) {
+      boolean[] oddRow = new boolean[m], oddCol = new boolean[n];
+      for (int[] idx: indices){
+          oddRow[idx[0]] ^= true;
+          oddCol[idx[1]] ^= true;
+      }
+      int cnt = 0;
+      for (int i = 0; i < m; i++){
+          for(int j = 0; j < n; j++){
+            cnt += oddRow[i] ^ oddCol[j] ? 1 : 0; 
+          }
+      } 
+      return cnt; 
+    }
+}
