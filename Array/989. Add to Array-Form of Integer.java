@@ -26,3 +26,23 @@ class Solution {
         return list;
     }
 }
+
+
+// method 2
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution {
+    public List<Integer> addToArrayForm(int[] num, int k) {
+        List<Integer> list = new LinkedList<>();
+        for(int i = num.length - 1; i >= 0; i-- ){
+            list.add(0, (k + num[i]) % 10);
+            k = (k + num[i]) / 10;
+        }
+        while(k > 0 ){
+            list.add(0, (k % 10));
+            k = k/10;
+        }
+        return list;
+    }
+}
