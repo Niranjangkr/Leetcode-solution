@@ -1,6 +1,7 @@
 
 const numbers = [64, 34, 25, 12, 22, 11, 90];
 
+/** 
 // Bubble Sort 
 
 for (let round = 0; round < numbers.length - 1; round++){
@@ -12,6 +13,26 @@ for (let round = 0; round < numbers.length - 1; round++){
         }
     }
 }
+*/
+
+
+// selection sort
+for (let i = 0; i < numbers.length; i++){
+    for(let i = 0; i < numbers.length; i++){
+        let Min = numbers[i];
+        let MinIndex = i;
+        for(let j = i+1; j < numbers.length; j++){
+            if(Min > numbers[j]){
+                Min = numbers[j];
+                MinIndex = j;
+            }
+        }
+        let temp =numbers[i];
+        numbers[i] = numbers[MinIndex];
+        numbers[MinIndex] = temp;
+    }
+}
+
 console.log(numbers)
 
 // binary search
@@ -36,4 +57,4 @@ function binarySearch(start, end){
 
 
 let ans = binarySearch(start, end);
-console.log(ans)
+console.log(ans);
