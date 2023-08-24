@@ -29,7 +29,7 @@ let users = [
 ]
 
 // you want to make a following third new array using the above two array
- 
+/**  
 let result = {
     Internship: [
         {
@@ -51,5 +51,24 @@ let result = {
             Name: "Gitanjali"
         }
     ]
-}
+}  */ 
 
+let result = {}
+
+role.forEach(ele => {
+    const user = users.find(user => ele.id === user.id);
+    if(user) {
+        let entry = {
+            id: ele.id,
+            Status: ele.status,
+            name: user.Name
+        }
+
+        if(!result[ele.status]){
+            result[ele.status] = [];
+        }
+        result[ele.status].push(entry)
+    }
+})
+
+console.log(result)
