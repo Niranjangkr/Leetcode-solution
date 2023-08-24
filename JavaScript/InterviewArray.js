@@ -53,6 +53,7 @@ let result = {
     ]
 }  */ 
 
+/**solution 1 
 let result = {}
 
 role.forEach(ele => {
@@ -68,6 +69,24 @@ role.forEach(ele => {
             result[ele.status] = [];
         }
         result[ele.status].push(entry)
+    }
+}) 
+*/
+
+
+let result = {};
+
+let userMap = new Map(users.map(user => [user.id, user]));
+role.forEach(ele => {
+    const user = userMap.get(ele.id);
+    if(user){
+        if(!result[ele.status]){
+            result[ele.status] = []
+        }
+        result[ele.status].push({
+            ...ele,
+            name: user.Name
+        });
     }
 })
 
